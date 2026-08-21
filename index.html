@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shin &amp; Lolly · August 25</title>
+
+    <!-- Google Fonts: Cormorant Garamond & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" src="assets/song.mp3" loop preload="auto"></audio>
+
+    <!-- Floating Music Toggle Button -->
+    <button id="music-toggle-btn" class="music-floating-btn hidden" aria-label="Toggle music playback">
+        <span class="music-note-icon">♫</span>
+        <span id="music-btn-text">Music: Playing</span>
+    </button>
+
+    <!-- Ambient Particle Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- PAGE 1: PASSWORD GATEWAY -->
+    <section id="password-screen" class="gate-screen active">
+        <div class="glass-card gate-card">
+            <p class="overline">A Little Something For You</p>
+            <h1 class="serif-title">Hello, Lolly.</h1>
+            <p class="gate-desc">I made this little corner of the internet just for you.</p>
+
+            <form id="gate-form" class="gate-form" onsubmit="return false;">
+                <div class="input-group">
+                    <input type="password" id="password-input" placeholder="Enter the secret phrase..."
+                        autocomplete="off" spellcheck="false">
+                    <button type="button" id="toggle-password-btn" class="toggle-eye"
+                        aria-label="Toggle password visibility">
+                        <svg id="eye-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+                <p id="error-message" class="error-text"></p>
+
+                <button type="submit" id="unlock-btn" class="cta-button">Enter Our World</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="main-content" class="main-wrapper hidden">
+
+        <!-- PAGE 2: HERO -->
+        <section id="hero" class="fullscreen-section hero-section reveal">
+            <div class="hero-content">
+                <p class="overline date-tag">August 25 · 2026</p>
+                <h1 class="hero-title serif-title">Shin <span class="accent-heart">♥</span> Lolly</h1>
+                <div class="quote-stack">
+                    <span>ONE BOOK</span>
+                    <span>ONE WINK</span>
+                    <span>ONE STORY</span>
+                </div>
+                <a href="#beginning" class="ghost-button scroll-trigger">Look into our story baby &darr;</a>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#beginning" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Our Beginning</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 3: OUR BEGINNING -->
+        <section id="beginning" class="section-container reveal">
+            <div class="split-layout">
+                <div class="text-column">
+                    <p class="overline">Chapter One</p>
+                    <h2 class="serif-heading">It started with a book.</h2>
+                    <div class="story-body">
+                        <p>Back in Grade 11, You really caught my attention first day of school pa lang yun e angas mo
+                            kasi, Im always telling you this right? and then one time bagsak ako sa mga exams so Im
+                            really kinda sad that time need ko mababasa and since Im interested sayo nagtanong ako
+                            kunwari, bagal mo pa non mag reply e, and then eventually nag reply ka and then ayon doon na
+                            nagsimula and if you still remember I use to borrow you some books and the reason is
+                            gusto ko "mapansin" mo ako, and it went good napansin mo ako ^^</p>
+                        <p>And that's how it starts, we became friends, typical pahingi copy sa subjects na ito, and
+                            then ewan, I just fall inlove with you, siguro dahil sa mga trip natin na irap at wink sa
+                            isa't-isa?</p>
+                        <p>That is one of the best memory we have, and Im so happy with that plus yung "BANGS" mo na
+                            sobrang ganda HAHAHAH plus points yon, and your kindness and beauty is so so much, I really
+                            love you so much my LOLLY ^^ </p>
+                    </div>
+                </div>
+
+                <div class="visual-column">
+                    <div class="book-mockup">
+                        <div class="book-cover">
+                            <div class="book-spine"></div>
+                            <div class="book-details">
+                                <span class="book-mini-title">STEM &amp; Us</span>
+                                <span class="book-sub">Volume I</span>
+                                <div class="book-ornament">✦</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#things-i-love" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Things I Love</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 4: THINGS I LOVE ABOUT YOU -->
+        <section id="things-i-love" class="section-container reveal">
+            <div class="section-header">
+                <p class="overline">Reflections</p>
+                <h2 class="serif-heading">Things I love about you.</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="glass-card feature-card">
+                    <div class="card-icon">I</div>
+                    <h3 class="serif-subheading">Your Hair</h3>
+                    <p>Specifically your bangs, I really like it ang cute, like no matter gaano kasabog buhok mo you're
+                        always pretty in my eyes
+                        maybe because I really love you that much, but you're really pretty tho, I really love your hair
+                        since yan talaga kumuha attention ko the "Wolf Cut".</p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="card-icon">II</div>
+                    <h3 class="serif-subheading">Your Humor</h3>
+                    <p>I love how you can make ordinary moments feel lighter, brighter, and effortlessly happy, yung
+                        pagiging exception ko sa pagiging sobrang makulit mo, pagiging maingay mo, I really like that
+                        yung kahit sobrang kulit pero hindi nakakainis kasi ang cute mo, baka nga katulad ng sabi mo sa
+                        akin, sa akin ka lang ganon, ngl I feel so special bc of it HAHAHAH baliw na ata ako beh
+                    </p>
+                </div>
+
+                <div class="glass-card feature-card">
+                    <div class="card-icon">III</div>
+                    <h3 class="serif-subheading">You</h3>
+                    <p>YOU> It's because it's you, you are Loraine Ferrer, the sweetest, kind, cute, and pretty girl for
+                        me, you're one of a kind baby, I really love everything about you, I love you so much </p>
+                </div>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#memories" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Our Memories</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 5: MEMORIES -->
+        <section id="memories" class="section-container reveal">
+            <div class="section-header">
+                <p class="overline">Moments</p>
+                <h2 class="serif-heading">FAVORITE MEMORIES</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="assets/photo1.jpg" alt="Memory One" class="memory-photo">
+                        <div class="photo-overlay">
+                            <p class="photo-caption">Really love this pic, ang cute natin^^</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="assets/photo2.jpg" alt="Memory Two" class="memory-photo">
+                        <div class="photo-overlay">
+                            <p class="photo-caption">OUR FIRST PICTURE TOGETHER, MASK ERA KO HAHAHA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="assets/photo3.jpg" alt="Memory Three" class="memory-photo">
+                        <div class="photo-overlay">
+                            <p class="photo-caption">OUR FIRST HIKING WE LOOOK CUTE COUPLE HERE ANG CINEMATIC NIYA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="image-wrapper">
+                        <img src="assets/photo4.jpg" alt="Memory Four" class="memory-photo">
+                        <div class="photo-overlay">
+                            <p class="photo-caption">FOR ME THIS IS THE SWEETEST PICTURE THAT WE HAVE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#envelope-section" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">My Letter</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 6: INTERACTIVE ENVELOPE -->
+        <section id="envelope-section" class="section-container reveal">
+            <div class="section-header">
+                <p class="overline">A Message for You My Lolly</p>
+                <h2 class="serif-heading">Open When You're Ready</h2>
+            </div>
+
+            <div class="envelope-stage">
+                <!-- Physical Envelope Container -->
+                <div class="envelope-wrapper" id="envelope-wrapper">
+                    <div class="envelope-back"></div>
+
+                    <!-- Miniature card inside envelope -->
+                    <div class="letter-preview" id="letter-preview">
+                        <div class="mini-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="envelope-left"></div>
+                    <div class="envelope-right"></div>
+                    <div class="envelope-bottom"></div>
+                    <div class="envelope-flap" id="envelope-flap"></div>
+
+                    <div class="wax-seal" id="wax-seal">
+                        <span>S♥L</span>
+                    </div>
+                </div>
+
+                <button id="open-envelope-btn" class="cta-button letter-btn">Open my letter ♥</button>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#video-section" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Our Video</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- FULLSCREEN LETTER MODAL -->
+        <div id="letter-modal" class="letter-modal-overlay" aria-hidden="true">
+            <div class="letter-modal-backdrop"></div>
+            <div class="letter-modal-card">
+                <button id="close-letter-btn" class="modal-close-icon" aria-label="Close Letter">&times;</button>
+                <div class="letter-scroll-area">
+                    <div class="letter-inner-content">
+                        <p class="letter-salutation">My love,</p>
+                        <p>Nakakatuwa 'no? We just started in borrowing books and then look ang layo na natin halos sa
+                            starting point, ang dami na natin pinag-daanan, all those tears, pain, and happiness, those
+                            things that makes us strong, I hope we remain strong for our relationship</p>
+                        <p>I love your hair, I really love this, I love everything about you.<br>I love your
+                            smile.<br>But more than all those little things, I love you.
+                        </p>
+                        <p class="highlight-line">Exactly as you, Loraine Ferrer</p>
+                        <p>Thank you for every laugh, every conversation, every memory, and every little moment you've
+                            shared with me. I will always carry those memories, you will always have special place in my
+                            heart, because it's you, I really really love everything about you </p>
+                        <p>Even though we're far from each other, we still made time para magkasama tayo, nakakatuwa
+                            lang na kinaya natin no at sana kayanin pa natin. I hope in our misunderstanding sometimes,
+                            I hope we learn to communicate well, since communication is really important, I hope our
+                            relationship remains strong even in our darkest days, I hope you will stay, i really love
+                            you so much, and thank you for everything that you've done, thank you sa napaka habang
+                            pasensya, thank you sa lahat love</p>
+                        <p>If I could go back to the beginning, I'll still choose you ^_~</p>
+                        <p class="highlight-line">And I will love more than I do right now</p>
+                        <p class="letter-signoff">Happy Anniversary, Lolly.<br><br>— Shin</p>
+                    </div>
+                </div>
+                <div class="modal-bottom-bar">
+                    <button id="letter-done-btn" class="ghost-button modal-done-btn">Continue to Our Story
+                        &darr;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 7: CINEMATIC VIDEO -->
+        <section id="video-section" class="section-container reveal">
+            <div class="section-header">
+                <p class="overline">Moving Frames</p>
+                <h2 class="serif-heading">My little cutie edit of our relationship</h2>
+            </div>
+
+            <div class="video-outer-frame">
+                <div class="video-container">
+                    <video id="anniversary-vid" controls preload="metadata">
+                        <source src="assets/anniversary-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#song-section" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Our Song</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 8: SONG / VINYL -->
+        <section id="song-section" class="section-container reveal">
+            <div class="vinyl-display">
+                <div class="turntable" id="turntable-click-area" title="Click to play/pause music"
+                    style="cursor: pointer;">
+                    <div class="vinyl-record" id="vinyl-record">
+                        <div class="vinyl-groove groove-1"></div>
+                        <div class="vinyl-groove groove-2"></div>
+                        <div class="vinyl-center">
+                            <div class="vinyl-label">
+                                <span class="label-tiny">TRACK 01</span>
+                                <span class="label-title">You're Still The One</span>
+                                <span class="label-date">08.25.26</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vinyl-text">
+                    <p class="overline">Our Melody</p>
+                    <h2 class="serif-heading">You're Still the One</h2>
+                    <p class="vinyl-quote">"For the person I'd still choose, every single time."</p>
+                    <p class="vinyl-hint" style="color: var(--accent-pink); font-size: 0.8rem; margin-top: 10px;">✦ Tap
+                        the vinyl to play or pause our song</p>
+                </div>
+            </div>
+
+            <!-- Floating Section Next Arrow -->
+            <a href="#final-screen" class="section-next-btn" aria-label="Next Section">
+                <span class="next-label">Final Thoughts</span>
+                <div class="arrow-circle">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <path d="M7 10l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <!-- PAGE 9: FINAL MESSAGE -->
+        <section id="final-screen" class="fullscreen-section final-section reveal">
+            <div class="final-container">
+                <p class="overline date-tag">AUGUST 25 · 2026</p>
+
+                <p class="final-prompt">If I could go back to the beginning...</p>
+                <h2 class="final-highlight serif-title">I'd still choose you.</h2>
+
+                <p class="final-body">
+                    Distance may keep us apart for now,<br>
+                    but it's not forever right? someday whenever we woke up, all the first thing we will see is each
+                    other
+                </p>
+
+                <div class="final-footer">
+                    <h3 class="final-names serif-heading">Shin <span class="accent-heart">♥</span> Lolly</h3>
+                    <p class="final-wish">Happy Anniversary, my love.</p>
+                </div>
+
+                <a href="#hero" class="ghost-button back-to-top-btn">&uarr; Back to the beginning</a>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
