@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -21,11 +21,26 @@
     <!-- Background Audio Element -->
     <audio id="bg-music" src="assets/song.mp3" loop preload="auto"></audio>
 
-    <!-- Floating Music Toggle Button -->
-    <button id="music-toggle-btn" class="music-floating-btn hidden" aria-label="Toggle music playback">
-        <span class="music-note-icon">♫</span>
-        <span id="music-btn-text">Music: Playing</span>
-    </button>
+    <!-- Floating Music & Volume Controller Bar -->
+    <div id="music-floating-widget" class="music-floating-container hidden">
+        <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle music playback">
+            <span class="music-note-icon">♫</span>
+            <span id="music-btn-text">Playing</span>
+        </button>
+
+        <div class="quick-volume-wrap">
+            <button id="quick-mute-btn" class="volume-speaker-btn" aria-label="Mute or unmute">
+                <svg id="volume-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                </svg>
+            </button>
+            <input type="range" id="floating-vol-slider" class="styled-slider mini-slider" min="0" max="1" step="0.01"
+                value="0.6" aria-label="Quick Volume Control">
+        </div>
+    </div>
 
     <!-- Ambient Particle Canvas -->
     <canvas id="ambient-canvas"></canvas>
@@ -97,8 +112,8 @@
                             kasi, Im always telling you this right? and then one time bagsak ako sa mga exams so Im
                             really kinda sad that time need ko mababasa and since Im interested sayo nagtanong ako
                             kunwari, bagal mo pa non mag reply e, and then eventually nag reply ka and then ayon doon na
-                            nagsimula and if you still remember I use to borrow you some books and the reason is
-                            gusto ko "mapansin" mo ako, and it went good napansin mo ako ^^</p>
+                            nagsimula and if you still remember I use to borrow you some books and the reason is gusto
+                            ko "mapansin" mo ako, and it went good napansin mo ako ^^</p>
                         <p>And that's how it starts, we became friends, typical pahingi copy sa subjects na ito, and
                             then ewan, I just fall inlove with you, siguro dahil sa mga trip natin na irap at wink sa
                             isa't-isa?</p>
@@ -122,7 +137,6 @@
                 </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#things-i-love" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">Things I Love</span>
                 <div class="arrow-circle">
@@ -146,9 +160,8 @@
                     <div class="card-icon">I</div>
                     <h3 class="serif-subheading">Your Hair</h3>
                     <p>Specifically your bangs, I really like it ang cute, like no matter gaano kasabog buhok mo you're
-                        always pretty in my eyes
-                        maybe because I really love you that much, but you're really pretty tho, I really love your hair
-                        since yan talaga kumuha attention ko the "Wolf Cut".</p>
+                        always pretty in my eyes maybe because I really love you that much, but you're really pretty
+                        tho, I really love your hair since yan talaga kumuha attention ko the "Wolf Cut".</p>
                 </div>
 
                 <div class="glass-card feature-card">
@@ -157,19 +170,17 @@
                     <p>I love how you can make ordinary moments feel lighter, brighter, and effortlessly happy, yung
                         pagiging exception ko sa pagiging sobrang makulit mo, pagiging maingay mo, I really like that
                         yung kahit sobrang kulit pero hindi nakakainis kasi ang cute mo, baka nga katulad ng sabi mo sa
-                        akin, sa akin ka lang ganon, ngl I feel so special bc of it HAHAHAH baliw na ata ako beh
-                    </p>
+                        akin, sakin ka lang ganon, ngl I feel so special bc of it HAHAHAH baliw na ata ako beh</p>
                 </div>
 
                 <div class="glass-card feature-card">
                     <div class="card-icon">III</div>
                     <h3 class="serif-subheading">You</h3>
-                    <p>YOU> It's because it's you, you are Loraine Ferrer, the sweetest, kind, cute, and pretty girl for
-                        me, you're one of a kind baby, I really love everything about you, I love you so much </p>
+                    <p>it's because it's you, you are Loraine Ferrer, the sweetest, kind, cute, and pretty girl
+                        for me, you're one of a kind baby, I really love everything about you, I love you so much </p>
                 </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#memories" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">Our Memories</span>
                 <div class="arrow-circle">
@@ -181,52 +192,76 @@
             </a>
         </section>
 
-        <!-- PAGE 5: MEMORIES -->
+        <!-- PAGE 5: 3D MEMORY SCRAPBOOK (30 MEMORIES) -->
         <section id="memories" class="section-container reveal">
             <div class="section-header">
                 <p class="overline">Moments</p>
                 <h2 class="serif-heading">FAVORITE MEMORIES</h2>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <div class="image-wrapper">
-                        <img src="assets/photo1.jpg" alt="Memory One" class="memory-photo">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">Really love this pic, ang cute natin^^</p>
+            <div class="scrapbook-stage">
+                <!-- 1. CLOSED BOOK VIEW -->
+                <div id="closed-book-view" class="book-closed-wrapper">
+                    <div class="closed-cover" title="Click to open book">
+                        <div class="cover-emboss">
+                            <span class="cover-mini-tag">OUR BOOK OF MEMORIES</span>
+                            <h3 class="serif-title">30 Memories</h3>
+                            <p class="cover-names">Shin &amp; Lolly</p>
+                            <div class="cover-ribbon">♥</div>
                         </div>
                     </div>
+                    <button id="open-book-btn" class="cta-button" style="margin-top: 24px;">Open Album ♥</button>
                 </div>
 
-                <div class="gallery-card">
-                    <div class="image-wrapper">
-                        <img src="assets/photo2.jpg" alt="Memory Two" class="memory-photo">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">OUR FIRST PICTURE TOGETHER, MASK ERA KO HAHAHA</p>
+                <!-- 2. OPENED BOOK SPREAD VIEW (Hidden by default) -->
+                <div id="opened-book-view" class="book-opened-wrapper hidden">
+                    <div class="book-top-bar">
+                        <span id="memory-badge" class="badge">Memory 01 / 30</span>
+                        <button id="close-book-btn" class="ghost-button close-book-btn" aria-label="Close book">
+                            Close Book ✕
+                        </button>
+                    </div>
+
+                    <!-- 3D Open Book Spread -->
+                    <div id="album-book" class="album-spread">
+                        <!-- Left Page (Quote & Progress) -->
+                        <div class="page page-left">
+                            <div class="page-corner-ornament">✦</div>
+                            <div class="quote-container">
+                                <p id="page-left-quote" class="quote-text">" moment with you is my favorite place
+                                    "</p>
+                            </div>
+                            <div class="page-footer">
+                                <span class="page-brand">Shin &amp; Lolly</span>
+                                <span id="page-number-left" class="page-num">01</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Page (Active Turning Leaf with Photo & Caption) -->
+                        <div id="active-album-page" class="page page-right">
+                            <div class="photo-tape-top"></div>
+                            <div class="photo-frame">
+                                <img id="current-book-photo" src="assets/photo1.jpg" alt="Memory 01"
+                                    class="memory-photo" />
+                            </div>
+                            <p id="memory-caption-text" class="caption-text">Really love this pic, ang cute natin^^</p>
+                            <div class="page-footer">
+                                <span id="page-number-right" class="page-num">01</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="gallery-card">
-                    <div class="image-wrapper">
-                        <img src="assets/photo3.jpg" alt="Memory Three" class="memory-photo">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">OUR FIRST HIKING WE LOOOK CUTE COUPLE HERE ANG CINEMATIC NIYA</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card">
-                    <div class="image-wrapper">
-                        <img src="assets/photo4.jpg" alt="Memory Four" class="memory-photo">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">FOR ME THIS IS THE SWEETEST PICTURE THAT WE HAVE</p>
-                        </div>
+                    <!-- Flip Navigation Controls -->
+                    <div class="book-nav-controls">
+                        <button id="prev-memory-btn" class="ghost-button nav-arrow" aria-label="Previous memory">&larr;
+                            Prev</button>
+                        <span class="progress-indicator"><span id="current-page-num">01</span> / 30</span>
+                        <button id="next-memory-btn" class="ghost-button nav-arrow" aria-label="Next memory">Next
+                            &rarr;</button>
                     </div>
                 </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#envelope-section" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">My Letter</span>
                 <div class="arrow-circle">
@@ -246,11 +281,8 @@
             </div>
 
             <div class="envelope-stage">
-                <!-- Physical Envelope Container -->
                 <div class="envelope-wrapper" id="envelope-wrapper">
                     <div class="envelope-back"></div>
-
-                    <!-- Miniature card inside envelope -->
                     <div class="letter-preview" id="letter-preview">
                         <div class="mini-lines">
                             <span></span>
@@ -258,21 +290,23 @@
                             <span></span>
                         </div>
                     </div>
-
                     <div class="envelope-left"></div>
                     <div class="envelope-right"></div>
                     <div class="envelope-bottom"></div>
                     <div class="envelope-flap" id="envelope-flap"></div>
-
                     <div class="wax-seal" id="wax-seal">
                         <span>S♥L</span>
                     </div>
                 </div>
 
-                <button id="open-envelope-btn" class="cta-button letter-btn">Open my letter ♥</button>
+                <div class="envelope-controls"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 36px;">
+                    <button id="open-envelope-btn" class="cta-button letter-btn" style="margin-top: 0;">Open my letter
+                        ♥</button>
+                    <button id="reopen-letter-btn" class="ghost-button hidden">Open letter again ✉️</button>
+                </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#video-section" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">Our Video</span>
                 <div class="arrow-circle">
@@ -296,8 +330,7 @@
                             starting point, ang dami na natin pinag-daanan, all those tears, pain, and happiness, those
                             things that makes us strong, I hope we remain strong for our relationship</p>
                         <p>I love your hair, I really love this, I love everything about you.<br>I love your
-                            smile.<br>But more than all those little things, I love you.
-                        </p>
+                            smile.<br>But more than all those little things, I love you.</p>
                         <p class="highlight-line">Exactly as you, Loraine Ferrer</p>
                         <p>Thank you for every laugh, every conversation, every memory, and every little moment you've
                             shared with me. I will always carry those memories, you will always have special place in my
@@ -309,7 +342,7 @@
                             you so much, and thank you for everything that you've done, thank you sa napaka habang
                             pasensya, thank you sa lahat love</p>
                         <p>If I could go back to the beginning, I'll still choose you ^_~</p>
-                        <p class="highlight-line">And I will love more than I do right now</p>
+                        <p class="highlight-line">And I will love you more than I do right now</p>
                         <p class="letter-signoff">Happy Anniversary, Lolly.<br><br>— Shin</p>
                     </div>
                 </div>
@@ -323,8 +356,8 @@
         <!-- PAGE 7: CINEMATIC VIDEO -->
         <section id="video-section" class="section-container reveal">
             <div class="section-header">
-                <p class="overline">Moving Frames</p>
-                <h2 class="serif-heading">My little cutie edit of our relationship</h2>
+                <p class="overline">OUR LITTLE MEMORIES ^^</p>
+                <h2 class="serif-heading">I LOVE YOU SO MUCH ^^ </h2>
             </div>
 
             <div class="video-outer-frame">
@@ -336,7 +369,6 @@
                 </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#song-section" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">Our Song</span>
                 <div class="arrow-circle">
@@ -348,20 +380,27 @@
             </a>
         </section>
 
-        <!-- PAGE 8: SONG / VINYL -->
+        <!-- PAGE 8: SONG / VINYL WITH SOUND CONTROLLER -->
         <section id="song-section" class="section-container reveal">
             <div class="vinyl-display">
-                <div class="turntable" id="turntable-click-area" title="Click to play/pause music"
-                    style="cursor: pointer;">
-                    <div class="vinyl-record" id="vinyl-record">
-                        <div class="vinyl-groove groove-1"></div>
-                        <div class="vinyl-groove groove-2"></div>
-                        <div class="vinyl-center">
-                            <div class="vinyl-label">
-                                <span class="label-tiny">TRACK 01</span>
-                                <span class="label-title">You're Still The One</span>
-                                <span class="label-date">08.25.26</span>
+                <div class="turntable-deck glass-card">
+                    <div class="turntable" id="turntable-click-area" title="Click to play/pause music">
+                        <div class="vinyl-record" id="vinyl-record">
+                            <div class="vinyl-groove groove-1"></div>
+                            <div class="vinyl-groove groove-2"></div>
+                            <div class="vinyl-groove groove-3"></div>
+                            <div class="vinyl-center">
+                                <div class="vinyl-label">
+                                    <span class="label-tiny">TRACK 01</span>
+                                    <span class="label-title">You're Still The One</span>
+                                    <span class="label-date">08.25.26</span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="turntable-arm" id="turntable-arm">
+                            <div class="arm-base"></div>
+                            <div class="arm-rod"></div>
+                            <div class="arm-head"></div>
                         </div>
                     </div>
                 </div>
@@ -370,12 +409,24 @@
                     <p class="overline">Our Melody</p>
                     <h2 class="serif-heading">You're Still the One</h2>
                     <p class="vinyl-quote">"For the person I'd still choose, every single time."</p>
-                    <p class="vinyl-hint" style="color: var(--accent-pink); font-size: 0.8rem; margin-top: 10px;">✦ Tap
-                        the vinyl to play or pause our song</p>
+
+                    <!-- Sound / Volume Deck Panel -->
+                    <div class="sound-deck glass-card">
+                        <div class="sound-deck-header">
+                            <span class="sound-label">Acoustic Atmosphere</span>
+                            <span id="volume-percent" class="volume-percent-badge">60%</span>
+                        </div>
+                        <div class="volume-slider-group">
+                            <span class="vol-icon-min">🔈</span>
+                            <input type="range" id="deck-vol-slider" class="styled-slider deck-slider" min="0" max="1"
+                                step="0.01" value="0.6">
+                            <span class="vol-icon-max">🔊</span>
+                        </div>
+                        <p class="vinyl-hint">✦ Click the vinyl or adjust sound levels for the mood</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Floating Section Next Arrow -->
             <a href="#final-screen" class="section-next-btn" aria-label="Next Section">
                 <span class="next-label">Final Thoughts</span>
                 <div class="arrow-circle">
@@ -397,8 +448,8 @@
 
                 <p class="final-body">
                     Distance may keep us apart for now,<br>
-                    but it's not forever right? someday whenever we woke up, all the first thing we will see is each
-                    other
+                    but it's not forever right? someday when we woke up, the first thing we will see is each
+                    other ^^
                 </p>
 
                 <div class="final-footer">
